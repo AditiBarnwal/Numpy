@@ -81,36 +81,34 @@ Data in multidimensional arrays are stored in tabular form.
 <h2>List vs numpy array</h2>
 <p>Some important points about Python Lists:</p>
 
-~The list can be homogeneous or heterogeneous.
-~Element-wise operation is not possible on the list.
-~Python list is by default 1-dimensional. But we can create an N-Dimensional list. But then too it will be 1 D list storing another 1D list
-~Elements of a list need not be contiguous in memory.
+<p>~The list can be homogeneous or heterogeneous.</p>
+<p>~Element-wise operation is not possible on the list.</p>
+<p>~Python list is by default 1-dimensional. But we can create an N-Dimensional list. But then too it will be 1 D list storing another 1D list</p>
+<p>~Elements of a list need not be contiguous in memory.</p>
 
-Data Type
+<h3>Data Type</h3>
 
-Every ndarray has an associated data type (dtype) object. This data type object (dtype) informs us about the layout of the array. This means it gives us information about :
+<p>Every ndarray has an associated data type (dtype) object. This data type object (dtype) informs us about the layout of the array. This means it gives us information about :</p>
 
-Type of the data (integer, float, Python object etc.)
-Size of the data (number of bytes)
-Byte order of the data (little-endian or big-endian)
-If the data type is a sub-array, what is its shape and data type.
+<p>~ Type of the data (integer, float, Python object etc.)</p>
+<p>~ Size of the data (number of bytes)</p>
+<p>~ Byte order of the data (little-endian or big-endian)</p>
+<p>If the data type is a sub-array, what is its shape and data type.
 The values of a ndarray are stored in a buffer which can be thought of as a contiguous block of memory bytes. So how these bytes will be interpreted is given by the dtype object.
 Every Numpy array is a table of elements (usually numbers), all of the same type, indexed by a tuple of positive integers. Every ndarray has an associated data type (dtype) object.
 This data type object (dtype) provides information about the layout of the array. The vaues of an ndarray are stored in a buffer which can be thought of as a contiguous block of memory bytes which can be interpreted by the dtype object. Numpy provides a large set of numeric datatypes that can be used to construct arrays.
-At the time of Array creation, Numpy tries to guess a datatype, but functions that construct arrays usually also include an optional argument to explicitly specify the datatype.
+At the time of Array creation, Numpy tries to guess a datatype, but functions that construct arrays usually also include an optional argument to explicitly specify the datatype.</p>
  
 
 # Python Program to create a data type object
-import numpy as np
+<pre>import numpy as np
  
-# np.int16 is converted into a data type object.
+np.int16 is converted into a data type object.
 print(np.dtype(np.int16))
 Run on IDE
-Output:
-
-int16
-# Python Program to create a data type object 
-# containing a 32 bit big-endian integer
+Output:int16</pre>
+<pre>#Python Program to create a data type object 
+#containing a 32 bit big-endian integer
 import numpy as np
  
 # i4 represents integer of size 4 byte
@@ -123,23 +121,28 @@ print("Byte order is:",dt.byteorder)
  
 print("Size is:",dt.itemsize)
  
-print("Data type is:",dt.name)
+print("Data type is:",dt.name)</pre>
 
-Data type Object (dtype) in NumPy
-![datatype(numpy)](https://user-images.githubusercontent.com/90051406/197744880-e5a7ab58-0317-47c6-9752-3db39cb44b88.png)
+<h2>Data type Object (dtype) in NumPy</h2>
+
+<img align="left" alt="datatype(numpy)" width="1000px" src="https://user-images.githubusercontent.com/90051406/198038223-556418b7-6edd-4cc8-ba86-0fe1895bb283.png" />
+<br><br>
 <h1>Creating Numpy Array</h1>
 Array creation using List
+<br>
 Array creation using array functions 
-Array creation using numpy methods 
+<br>
+<h2>Array creation using numpy methods </h2>
 
 Methods for array creation in Numpy
+<br>
 FUNCTION	DESCRIPTION
-empty()	Return a new array of given shape and type, without initializing entries
-Syntax: numpy.empty(shape, dtype = float, order = ‘C’) 
+<pre>empty()	Return a new array of given shape and type, without initializing entries
+Syntax: numpy.empty(shape, dtype = float, order = ‘C’) </pre>
 
-empty_like()	Return a new array with the same shape and type as a given array
-eye()	Return a 2-D array with ones on the diagonal and zeros elsewhere.
-numpy.eye(R, C = None, k = 0, dtype = type <‘float’>) : –The eye tool returns a 2-D array with  1’s as the diagonal and  0’s elsewhere. The diagonal can be main, upper, or lower depending on the optional parameter k. A positive k is for the upper diagonal, a negative k is for the lower, and a  0 k (default) is for the main diagonal.
+<pre>empty_like()	Return a new array with the same shape and type as a given array</pre>
+<pre>eye()	Return a 2-D array with ones on the diagonal and zeros elsewhere.</pre>
+<pre>numpy.eye(R, C = None, k = 0, dtype = type <‘float’>) : –The eye tool returns a 2-D array with  1’s as the diagonal and  0’s elsewhere. The diagonal can be main, upper, or lower depending on the optional parameter k. A positive k is for the upper diagonal, a negative k is for the lower, and a  0 k (default) is for the main diagonal.
 
 Parameters : 
 
@@ -152,9 +155,9 @@ Returns :
 
 array of shape, R x C, an array where all elements 
 are equal to zero, except for the k-th diagonal, 
-whose values are equal to one.
-identity()	Return the identity array
-ones()	Return a new array of given shape and type, filled with ones
+whose values are equal to one.</pre>
+<pre>identity()	Return the identity array</pre>
+<pre>ones()	Return a new array of given shape and type, filled with ones
 parameters, discussed below – 
  
 
@@ -165,9 +168,9 @@ order  : C_contiguous or F_contiguous
          FORTRAN-contiguous order in memory (first index varies the fastest).
          F order means that column-wise operations will be faster. 
 dtype : [optional, float(byDefault)] Data type of returned array.  
-
-ones_like()	Return an array of ones with the same shape and type as a given array
-zeros()	Return a new array of given shape and type, filled with zeros
+</pre>
+<pre>ones_like()	Return an array of ones with the same shape and type as a given array</pre>
+<pre>zeros()	Return a new array of given shape and type, filled with zeros
 Syntax:
 
 numpy.zeros(shape, dtype = None, order = 'C')
@@ -182,7 +185,7 @@ dtype : [optional, float(byDeafult)] Data type of returned array.
 
 Returns : ndarray of zeros having given shape, order and datatype.
 The arange([start,] stop[, step,][, dtype]) : Returns an array with evenly spaced elements as per the interval. The interval mentioned is half-opened i.e. [Start, Stop) 
-
+</pre>
 Parameters : 
 
 start : [optional] start of interval range. By default start = 0
@@ -194,10 +197,10 @@ Return:
 
 Array of evenly spaced values.
 Length of array being generated  = Ceil((Stop - Start) / Step)
-zeros_like()	Return an array of zeros with the same shape and type as a given array
-full_like()	Return a full array with the same shape and type as a given array.
-array()	Create an array
-asarray()	Convert the input to an array
+<pre>zeros_like()	Return an array of zeros with the same shape and type as a given array</pre>
+<pre>full_like()	Return a full array with the same shape and type as a given array.</pre>
+<pre>array()	Create an array</pre>
+<pre>asarray()	Convert the input to an array</pre>
 asanyarray()	Convert the input to an ndarray, but pass ndarray subclasses through
 ascontiguousarray()	Return a contiguous array in memory (C order)
 asmatrix()	Interpret the input as a matrix
@@ -246,9 +249,7 @@ triu()	Upper triangle of an array
 vander()	Generate a Vandermonde matrix
 mat()	Interpret the input as a matrix
 bmat()	Build a matrix object from a string, nested sequence, or array
-
-
-![Group 2](https://user-images.githubusercontent.com/90051406/197808873-d33b02b5-734a-4874-aca2-db0e97a70974.png)
+ 
 
 fromiter()is useful for creating non-numeric sequence type array however it can create any type of array. Here we will convert a string into a NumPy array of characters.
 
@@ -283,126 +284,103 @@ Syntax : numpy.core.fromrecords([(tup1), (tup2)], metadata)
 Return : Return the record of an array.
 
 <h1>NumPy Array Manipulation</h1>
-copy and view
-How to Copy NumPy array into another array?
+<h2>copy and view</h2>
+<h4>How to Copy NumPy array into another array?</h4>
 ![Group 3](https://user-images.githubusercontent.com/90051406/197821558-8cd1f675-d6ce-490f-b450-b3bb9104c8e5.png)
 
-Numpy array ‘org_array‘ is copied to another array ‘copy_array‘ using np.copy () function
-the copy is physically stored at another location and view has the same memory location as the original array.
-No Copy: Normal assignments do not make the copy of an array object. Instead, it uses the exact same id of the original array to access it. Further, any changes in either get reflected in the other.
-View: This is also known as Shallow Copy. The view is just a view of the original array and view does not own the data. When we make changes to the view it affects the original array, and when changes are made to the original array it affects the view.
+<p>Numpy array ‘org_array‘ is copied to another array ‘copy_array‘ using np.copy () function
+the copy is physically stored at another location and view has the same memory location as the original array.</p>
+<p>No Copy: Normal assignments do not make the copy of an array object. Instead, it uses the exact same id of the original array to access it. Further, any changes in either get reflected in the other.</p>
+<p>View: This is also known as Shallow Copy. The view is just a view of the original array and view does not own the data. When we make changes to the view it affects the original array, and when changes are made to the original array it affects the view.</p>
 
-Copy: This is also known as Deep Copy. The copy is completely a new array and copy owns the data. When we make changes to the copy it does not affect the original array, and when changes are made to the original array it does not affect the copy.
+<p>Copy: This is also known as Deep Copy. The copy is completely a new array and copy owns the data. When we make changes to the copy it does not affect the original array, and when changes are made to the original array it does not affect the copy.</p>
 
-Example: (making a copy and changing original array)
-Array Owning it’s Data:
-To check whether array own it’s data in view and copy we can use the fact that every NumPy array has the attribute base that returns None if the array owns the data. Else, the base attribute refers to the original object.
+<pre>Example: (making a copy and changing original array)</pre>
+<h3>Array Owning it’s Data:</h3>
+<p>To check whether array own it’s data in view and copy we can use the fact that every NumPy array has the attribute base that returns None if the array owns the data. Else, the base attribute refers to the original object.</p>
 
-How to swap columns of a given NumPy array?
+<h3>How to swap columns of a given NumPy array?</h3>
 
 Insert a new axis within a NumPy array
 NumPy provides us with two different built-in functions to increase the dimension of an array i.e.,
  
 
-1D array will become 2D array
-2D array will become 3D array
-3D array will become 4D array
-4D array will become 5D array
-1.numpy.newaxis()The first method is to use numpy.newaxis object. This object is equivalent to use None as a parameter while declaring the array. The trick is to use the numpy.newaxis object as a parameter at the index location in which you want to add the new axis.
+1D array will become 2D array<br>
+2D array will become 3D array<br>
+3D array will become 4D array<br>
+4D array will become 5D array<br>
+1.numpy.newaxis()The first method is to use numpy.newaxis object. This object is equivalent to use None as a parameter while declaring the array. The trick is to use the numpy.newaxis object as a parameter at the index location in which you want to add the new axis.<br>
 2.numpy.expand_dims()
 
 
 
-numpy.hstack() in Python
-numpy.hstack() function is used to stack the sequence of input arrays horizontally (i.e. column wise) to make a single array.
-
+<h1>numpy.hstack() in Python</h1>
+<p>numpy.hstack() function is used to stack the sequence of input arrays horizontally (i.e. column wise) to make a single array.</p>
+<pre>
 Syntax : numpy.hstack(tup)
 
 Parameters :
 tup : [sequence of ndarrays] Tuple containing arrays to be stacked. The arrays must have the same shape along all but the second axis.
 
 Return : [stacked ndarray] The stacked array of the input arrays.
-numpy.vstack() in python
-numpy.vstack() function is used to stack the sequence of input arrays vertically to make a single array.
-
+</pre>
+<h1>numpy.vstack() in python</h1>
+<p>numpy.vstack() function is used to stack the sequence of input arrays vertically to make a single array.</p>
+<pre>
 Syntax : numpy.vstack(tup)
 
 Parameters :
 tup : [sequence of ndarrays] Tuple containing arrays to be stacked. The arrays must have the same shape along all but the first axis.
 
 Return : [stacked ndarray] The stacked array of the input arrays.
-
-Joining NumPy Array
+</pre>
+<h1>Joining NumPy Array</h1>
 NumPy provides various functions to combine arrays. In this article, we will discuss some of the major ones.
-
-numpy.concatenate
-numpy.stack
-numpy.block-numpy.block is used to create nd-arrays from nested blocks of lists.
-
+<br>
+numpy.concatenate<br>
+numpy.stack<br>
+numpy.block-numpy.block is used to create nd-arrays from nested blocks of lists.<br>
+<pre>
 Syntax:
 
-numpy.block(arrays)
-Method 1: Using numpy.concatenate()
+numpy.block(arrays)</pre>
+<b>Method 1:</b> Using numpy.concatenate()
 
-The concatenate function in NumPy joins two or more arrays along a specified axis. 
-
-Syntax:
-
-
-numpy.concatenate((array1, array2, ...), axis=0)
+<p>The concatenate function in NumPy joins two or more arrays along a specified axis. </p>
+<pre>
+Syntax:numpy.concatenate((array1, array2, ...), axis=0)</pre>
 The stack() function of NumPy joins two or more arrays along a new axis.
 
-Combining a one and a two-dimensional NumPy Array
-Difficulty Level : Medium
-Last Updated : 01 Oct, 2020
-Read
-Discuss
+<h1>Combining a one and a two-dimensional NumPy Array</h1>
 
-Sometimes we need to combine 1-D and 2-D arrays and display their elements. Numpy has a function named as numpy.nditer(), which provides this facility.
+<p>Sometimes we need to combine 1-D and 2-D arrays and display their elements. Numpy has a function named as numpy.nditer(), which provides this facility.</p>
 
-Syntax: numpy.nditer(op, flags=None, op_flags=None, op_dtypes=None, order=’K’, casting=’safe’, op_axes=None, itershape=None, buffersize=0)
+<pre>Syntax: numpy.nditer(op, flags=None, op_flags=None, op_dtypes=None, order=’K’, casting=’safe’, op_axes=None, itershape=None, buffersize=0)</pre>
 
-Numpy np.ma.concatenate() method
-Difficulty Level : Medium
-Last Updated : 03 Nov, 2019
-Read
-Discuss
+<h1>Numpy np.ma.concatenate() method</h1>
 
-With the help of np.ma.concatenate() method, we can concatenate two arrays with the help of np.ma.concatenate() method.
+<p>With the help of np.ma.concatenate() method, we can concatenate two arrays with the help of np.ma.concatenate() method.</p>
 
-Syntax : np.ma.concatenate([list1, list2])
-Return : Return the array after concatenation.
+<pre>Syntax : np.ma.concatenate([list1, list2])
+Return : Return the array after concatenation.</pre>
 
-Numpy dstack() method
-Last Updated : 19 Sep, 2019
-Read
-Discuss
+<h1>Numpy dstack() method</h1>
+<p>With the help of numpy.dstack() method, we can get the combined array index by index and store like a stack by using numpy.dstack() method.</p>
+<pre>Syntax : numpy.dstack((array1, array2))
+Return : Return combined array index by index.</pre>
+<h2>How to compare two NumPy arrays?</h2>
+<p>here we will be focusing on the comparison done using NumPy on arrays. Comparing two NumPy arrays determines whether they are equivalent by checking if every element at each corresponding index is the same. </p>
 
-With the help of numpy.dstack() method, we can get the combined array index by index and store like a stack by using numpy.dstack() method.
-
-Syntax : numpy.dstack((array1, array2))
-
-Return : Return combined array index by index.
-
-
-How to compare two NumPy arrays?
-Difficulty Level : Basic
-Last Updated : 03 Jun, 2022
-Read
-Discuss
-
-Here we will be focusing on the comparison done using NumPy on arrays. Comparing two NumPy arrays determines whether they are equivalent by checking if every element at each corresponding index is the same. 
-
-Method 1: We generally use the == operator to compare two NumPy arrays to generate a new array object. Call ndarray.all() with the new array object as ndarray to return True if the two NumPy arrays are equivalent. 
-Method 2: We can also use greater than, less than and equal to operators to compare. To understand, have a look at the code below.
-
+<b>Method 1:</b> We generally use the == operator to compare two NumPy arrays to generate a new array object. Call ndarray.all() with the new array object as ndarray to return True if the two NumPy arrays are equivalent. 
+<b>Method 2:</b> We can also use greater than, less than and equal to operators to compare. To understand, have a look at the code below.
+<pre>
 Syntax : numpy.greater(x1, x2[, out])
 Syntax : numpy.greater_equal(x1, x2[, out])
 Syntax : numpy.less(x1, x2[, out])
-Syntax : numpy.less_equal(x1, x2[, out])
-Method 3: Using array_equal() 
+Syntax : numpy.less_equal(x1, x2[, out])</pre>
+<b>Method 3:</b> Using array_equal() 
 This array_equal() function checks if two arrays have the same elements and same shape.
-
+<pre>
 Syntax:
 
 numpy.array_equal(arr1, arr2) 
@@ -410,74 +388,61 @@ Parameters:
 
 arr1    : [array_like]Input array or object whose elements, we need to test.
 arr2    : [array_like]Input array or object whose elements, we need to test.
-Return Type: True, two arrays have the same elements and same shape.; otherwise False
-
-Find unique rows in a NumPy array
-Difficulty Level : Easy
-Last Updated : 03 Oct, 2022
-Read
-Discuss
-
-In this article, we will discuss how to find unique rows in a NumPy array. To find unique rows in a NumPy array we are using numpy.unique() function of NumPy library.
-
+Return Type: True, two arrays have the same elements and same shape.; otherwise False</pre>
+<h1>Find unique rows in a NumPy array</h1><br>
+we will discuss how to find unique rows in a NumPy array. To find unique rows in a NumPy array we are using numpy.unique() function of NumPy library.
+<pre>
 Syntax of np.unique() in Python
 Syntax: numpy.unique()
-
 Parameter:
-
 ar: array
 return_index: Bool, if True return the indices of the input array
 return_inverse: Bool, if True return the indices of the input array
 return_counts: Bool, if True return the number of times each unique item appeared in the input array
-axis: int or none, defines the axis to operate on
+axis: int or none, defines the axis to operate on</pre>
 
-Python | Numpy np.unique() method
-Difficulty Level : Easy
-Last Updated : 21 Nov, 2019
-Read
-Discuss
+<h>Python | Numpy np.unique() method</h1>
+With the help of np.unique() method, we can get the unique values from an array given as parameter in np.unique() method.<br>
+<pre>Syntax : np.unique(Array)
+Return : Return the unique of an array.</pre>
 
-With the help of np.unique() method, we can get the unique values from an array given as parameter in np.unique() method.
+<h1>Operations on NumPy Array</h1>
+<h3>Numpy – Binary Operations</h3>
+<h3>Numpy – Mathematical Function</h3>
+<h3>Numpy – String Operations</h3>
+<h1>Matrix Manipulation</h1>
+<img align="left" alt="datatype(numpy)" width="1000px" src="https://user-images.githubusercontent.com/90051406/197936373-99e26a96-760d-4669-9213-14fd086e63fa.png" />
+<br><br>
+<h1>Indexing NumPy Array</h1>
 
-Syntax : np.unique(Array)
-Return : Return the unique of an array.
+<h4>Why do we need NumPy ?</h4>
 
-Operations on NumPy Array
-Numpy – Binary Operations
+<p>A question arises that why do we need NumPy when python lists are already there. The answer to it is we cannot perform operations on all the elements of two list directly. For example we cannot multiply two lists directly we will have to do it element wise. This is where the role of NumPy comes into play.</p>
 
-Numpy – Mathematical Function
-Numpy – String Operations
-![Group 4](https://user-images.githubusercontent.com/90051406/197936373-99e26a96-760d-4669-9213-14fd086e63fa.png)
-Indexing NumPy Array
+<h2>Types of Indexing</h2>
 
-Why do we need NumPy ?
+There are two types of indexing :<br>
 
-A question arises that why do we need NumPy when python lists are already there. The answer to it is we cannot perform operations on all the elements of two list directly. For example we cannot multiply two lists directly we will have to do it element wise. This is where the role of NumPy comes into play.
+<b>1. Basic Slicing and indexing :<b> <p>Consider the syntax x[obj] where x is the array and obj is the index. Slice object is the index in case of basic slicing.</p> Basic slicing occurs when obj is :<br>
 
-Types of Indexing
-
-There are two types of indexing :
-
-1. Basic Slicing and indexing : Consider the syntax x[obj] where x is the array and obj is the index. Slice object is the index in case of basic slicing. Basic slicing occurs when obj is :
-
-a slice object that is of the form start : stop : step
-an integer
-or a tuple of slice objects and integers
-All arrays generated by basic slicing are always view of the original array.
+a slice object that is of the form start : stop : step<br>
+an integer<br>
+or a tuple of slice objects and integers<br>
+All arrays generated by basic slicing are always view of the original array.<br>
  
-2. Advanced indexing : Advanced indexing is triggered when obj is : 
+<b>2. Advanced indexing :</b> Advanced indexing is triggered when obj is :<br> 
 
-an ndarray of type integer or Boolean
+an ndarray of type integer or Boolean<br>
 or a tuple with at least one sequence object
 is a non tuple sequence object
-Advanced indexing returns a copy of data rather than a view of it. Advanced indexing is of two types integer and Boolean.
+<p>Advanced indexing returns a copy of data rather than a view of it. Advanced indexing is of two types integer and Boolean.</p>
 
 Purely integer indexing : When integers are used for indexing. Each element of first dimension is paired with the element of the second dimension. So the index of the elements in this case are (0,0),(1,0),(2,1) and the corresponding elements are selected.
 Boolean Indexing 
 This indexing has some boolean expression as the index. Those elements are returned which satisfy that Boolean expression. It is used for filtering the desired element values.
 
-The numpy.compress() function returns selected slices of an array along mentioned axis, that satisfies an axis.
-
+The <h1>numpy.compress()</h1> function returns selected slices of an array along mentioned axis, that satisfies an axis.<br>
+<pre>
 Syntax: numpy.compress(condition, array, axis = None, out = None)
 Parameters :
 
@@ -490,71 +455,164 @@ axis      : [optional, int]Indicating which slice to select.
          By Default, work on flattened array[1-D]
 out       : [optional, ndarray]Output_array with elements of input_array, 
                that satisfies condition
-Return :
+Return :Copy of array with elements of input_array,
+that satisfies condition and along given axis</pre>
 
-Copy of array with elements of input_array,
-that satisfies condition and along given axis
+<h1>numpy.tril_indices()</h1> function return the indices for the lower-triangle of an (n, m) array.<br>
 
-numpy.tril_indices() function return the indices for the lower-triangle of an (n, m) array.
-
-Syntax : numpy.tril_indices(n, k = 0, m = None)
+<pre>Syntax : numpy.tril_indices(n, k = 0, m = None)
 Parameters :
 n : [int] The row dimension of the arrays for which the returned indices will be valid.
 k : [int, optional] Diagonal offset.
 m : [int, optional] The column dimension of the arrays for which the returned arrays will be valid. By default m is taken equal to n.
-Return : [tuple of arrays] The indices for the triangle. The returned tuple contains two arrays, each with the indices along one dimension of the array.
+Return : [tuple of arrays] The indices for the triangle. The returned tuple contains two arrays, each with the indices along one dimension of the array.</pre>
 
-EigenVectors. In the below examples, we have used numpy.linalg.eig() to find eigenvalues and eigenvectors for the given square array. 
+EigenVectors. In the below examples, we have used numpy.linalg.eig() to find eigenvalues and eigenvectors for the given square array.<br> 
 
-Syntax: numpy.linalg.eig()
-
-
+<p[re>Syntax: numpy.linalg.eig()
 Parameter: An square array.
+Return: It will return two values first is eigenvalues and second is eigenvectors.</pre>
 
-Return: It will return two values first is eigenvalues and second is eigenvectors.
+<h1>Numpy | Sorting, Searching and Counting</h1>
 
-Numpy | Sorting, Searching and Counting
-
-numpy.sort() : This function returns a sorted copy of an array.
-numpy.argsort() : This function returns the indices that would sort an array.
-
-numpy.lexsort() : This function returns an indirect stable sort using a sequence of keys.
+numpy.sort() : This function returns a sorted copy of an array.<br>
+numpy.argsort() : This function returns the indices that would sort an array.<br>
+numpy.lexsort() : This function returns an indirect stable sort using a sequence of keys.<br>
  
-
-FUNCTION	DESCRIPTION
-numpy.ndarray.sort()	Sort an array, in-place.
-numpy.msort()	Return a copy of an array sorted along the first axis.
-numpy.sort_complex()	Sort a complex array using the real part first, then the imaginary part.
-numpy.partition()	Return a partitioned copy of an array.
-numpy.argpartition()	Perform an indirect partition along the given axis using the algorithm specified by the kind keyword.
-Searching
-Searching is an operation or a technique that helps finds the place of a given element or value in the list. Any search is said to be successful or unsuccessful depending upon whether the element that is being searched is found or not. In Numpy, we can perform various searching operations using the various functions that are provided in the library like argmax, argmin, nanaargmax etc.
-
-numpy.argmax() : This function returns indices of the max element of the array in a particular axis.
-numpy.nanargmax() : This function returns indices of the max element of the array in a particular axis ignoring NaNs.The results cannot be trusted if a slice contains only NaNs and Infs.
-numpy.argmin() : This function returns the indices of the minimum values along an axis.
-
-FUNCTION	DESCRIPTION
-numpy.nanargmin()	Return the indices of the minimum values in the specified axis ignoring NaNs.
-numpy.argwhere()	Find the indices of array elements that are non-zero, grouped by element.
-numpy.nonzero()	Return the indices of the elements that are non-zero.
-numpy.flatnonzero()	Return indices that are non-zero in the flattened version of a.
-numpy.where()	Return elements chosen from x or y depending on condition.
-numpy.searchsorted()	Find indices where elements should be inserted to maintain order.
-numpy.extract()	Return the elements of an array that satisfy some condition.
-Counting
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>numpy.ndarray.sort()</td><td>	Sort an array, in-place.</td></tr>
+<tr><td>numpy.msort()</td><td>	Return a copy of an array sorted along the first axis.</td></tr>
+<tr><td>numpy.sort_complex()	</td><td>Sort a complex array using the real part first, then the imaginary part.</td></tr>
+<tr><td>numpy.partition()</td><td>	Return a partitioned copy of an array.</td></tr>
+<tr><td>numpy.argpartition()</td><td>	Perform an indirect partition along the given axis using the algorithm specified by the kind keyword.</td></tr></table>
+<h1>Searching</h1>
+<i>Searching is an operation or a technique that helps finds the place of a given element or value in the list. Any search is said to be successful or unsuccessful depending upon whether the element that is being searched is found or not. In Numpy, we can perform various searching operations using the various functions that are provided in the library like argmax, argmin, nanaargmax etc.</i>
+<table>
+<tr><td>numpy.argmax() : This function returns indices of the max element of the array in a particular axis.</td></tr>
+<tr><td>numpy.nanargmax() : This function returns indices of the max element of the array in a particular axis ignoring NaNs.The results cannot be trusted if a slice contains only NaNs and Infs.</td></tr>
+<tr><td>numpy.argmin() : This function returns the indices of the minimum values along an axis.</td></tr></table>
+</table>
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>numpy.nanargmin()	</td><td>Return the indices of the minimum values in the specified axis ignoring NaNs.</td></tr>
+<tr><td>numpy.argwhere()</td><td>	Find the indices of array elements that are non-zero, grouped by element.</td></tr>
+<tr><td>numpy.nonzero()</td><td>	Return the indices of the elements that are non-zero.</td></tr>
+<tr><td>numpy.flatnonzero()</td><td>	Return indices that are non-zero in the flattened version of a.</td></tr>
+<tr><td>numpy.where()</td><td>	Return elements chosen from x or y depending on condition.</td></tr>
+<tr><td>numpy.searchsorted()</td><td>	Find indices where elements should be inserted to maintain order.</td></tr>
+<tr><td>numpy.extract()</td><td>	Return the elements of an array that satisfy some condition.</td></tr></table>
+<h1>Counting</h1>
 numpy.count_nonzero() : Counts the number of non-zero values in the array .
 
-numpy.sort_complex() in Python
-Last Updated : 24 Dec, 2018
-Read
-Discuss
+<h1>numpy.sort_complex() in Python</h1>
+<p>numpy.sort_complex() function is used to sort a complex array.It sorts the array by using the real part first, then the imaginary part.</p>
 
-numpy.sort_complex() function is used to sort a complex array.It sorts the array by using the real part first, then the imaginary part.
-
-Syntax : numpy.sort_complex(arr)
-
+<pre>Syntax : numpy.sort_complex(arr)
 Parameters :
 arr : [array_like] Input array.
+Return : [complex ndarray] A sorted complex array.</pre>
 
-Return : [complex ndarray] A sorted complex array.
+<h1>Create your own universal function in NumPy</h1>
+<p>Universal functions in Numpy are simple mathematical functions. It is just a term that we gave to mathematical functions in the Numpy library. Numpy provides various universal functions that cover a wide variety of operations. However, we can create our own universal function in Python. To create your own universal function in NumPy, we have to apply some steps given below:</p>
+
+Define the function as usually using the def keyword.<br>
+Add this function to numpy library using frompyfunc() method.
+Use this function using numpy.<br>
+frompyfunc() method function allows to create an arbitrary Python function as Numpy ufunc (universal function). <br>
+This method takes the following arguments :<br>
+<pre>
+Parameters:
+function – the name of the function that you create.
+inputs – the number of input arguments (arrays) that function takes.
+outputs – the number of output (arrays) that function produces.</pre>
+<p>Note: For more information, refer to numpy.frompyfunc() in Python.</p>
+
+<pre>
+Example :
+
+Create function with name fxn that takes one value and also return one value.
+The inputs are array elements one by one.
+The outputs are modified array elements using some logic.</pre>
+
+<h2>Some of the basic universal functions in Numpy are-</h2>
+ 
+
+<h3>Trigonometric functions:</h3>
+<p>These functions work on radians, so angles need to be converted to radians by multiplying by pi/180. Only then we can call trigonometric functions. They take an array as input arguments. It includes functions like-</p>
+
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>sin, cos, tan</td><td>		compute sine, cosine and tangent of angles</td></tr>
+<tr><td>arcsin, arccos, arctan</td><td>		calculate inverse sine, cosine and tangent</td></tr>
+<tr><td>hypot</td><td>		calculate hypotenuse of given right triangle</td></tr>
+<tr><td>sinh, cosh, tanh</td><td>		compute hyperbolic sine, cosine and tangent</td></tr>
+<tr><td>arcsinh, arccosh, arctanh	</td><td>	compute inverse hyperbolic sine, cosine and tangent</td></tr>
+<tr><td>deg2rad	</td><td>	convert degree into radians</td></tr>
+<tr><td>rad2deg	</td><td>	convert radians into degree</td></tr></table>
+<h3>Statistical functions:</h3>
+These functions are used to calculate mean, median, variance, minimum of array elements. It includes functions like-<br>
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>amin, amax</td><td>	returns minimum or maximum of an array or along an axis
+<tr><td>ptp	</td><td>returns range of values (maximum-minimum) of an array or along an axis
+<tr><td>percentile(a, p, axis)</td><td>	calculate pth percentile of array or along specified axis
+<tr><td>median	</td><td>compute median of data along specified axis
+<tr><td>mean</td><td>	compute mean of data along specified axis
+<tr><td>std</td><td>	compute standard deviation of data along specified axis
+<tr><td>var</td><td>	compute variance of data along specified axis
+<tr><td>average	</td><td>compute average of data along specified axis</td></tr></table>
+ 
+<h1>Bit-twiddling functions:</h1>
+<p>These functions accept integer values as input arguments and perform bitwise operations on binary representations of those integers. It include functions like-</p>
+ <table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>bitwise_and</td><td>	performs bitwise and operation on two array elements</td></tr>
+<tr><td>bitwies_or</td><td>	performs bitwise or operation on two array elements</td></tr>
+<tr><td>bitwise_xor</td><td>	performs bitwise xor operation on two array elements</td></tr>
+<tr><td>invert</td><td>	performs bitwise inversion of an array elements</td></tr>
+<tr><td>left_shift</td><td>	shift the bits of elements to left</td></tr>
+<tr><td>right_shift</td><td>	shift the bits of elements to left</td></tr></table>
+
+<h1>String Operations</h1>
+This module is used to perform vectorized string operations for arrays of dtype numpy.string_ or numpy.unicode_. All of them are based on the standard string functions in Python’s built-in library.<br>
+<b><i>String Operations –</i></b><br>
+<b>numpy.lower() : </b>This function returns the lowercase string from the given string. It converts all uppercase characters to lowercase. If no uppercase characters exist, it returns the original string.<br>
+<b>numpy.join() :</b> This function is a string method and returns a string in which the elements of sequence have been joined by str separator.<br>
+
+ 
+
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>numpy.strip()</td><td>	It is used to remove all the leading and trailing spaces from a string.</td></tr>
+<tr><td>numpy.capitalize()</td><td>	It converts the first character of a string to capital (uppercase) letter. If the string has its first character as capital, then it returns the original string.</td></tr>
+<tr><td>numpy.center()</td><td>	It creates and returns a new string which is padded with the specified character..</td></tr>
+<tr><td>numpy.decode()</td><td>	It is used to convert from one encoding scheme, in which argument string is encoded to the desired encoding scheme.</td></tr>
+<tr><td>numpy.encode()</td><td>	Returns the string in the encoded form</td></tr>
+<tr><td>numpy.ljust()</td><td>	Return an array with the elements of a left-justified in a string of length width.</td></tr>
+<tr><td>numpy.rjust()</td><td>	For each element in a, return a copy with the leading characters removed.</td></tr>
+<tr><td>numpy.strip()</td><td>	For each element in a, return a copy with the leading and trailing characters removed.</td></tr>
+<tr><td>numpy.lstrip()</td><td>	Convert angles from degrees to radians.</td></tr>
+<tr><td>numpy.rstrip()</td><td>	For each element in a, return a copy with the trailing characters removed.</td></tr>
+<tr><td>numpy.partition()</td><td>	Partition each element in a around sep.</td></tr>
+<tr><td>numpy.rpartition</td><td>	Partition (split) each element around the right-most separator.</td></tr>
+<tr><td>numpy.rsplit()</td><td>	For each element in a, return a list of the words in the string, using sep as the delimiter string.</td></tr>
+<tr><td>numpy.title()</td><td>	It is used to convert the first character in each word to Uppercase and remaining characters to Lowercase in string and returns new string.</td></tr>
+<tr><td>numpy.upper()</td><td>	Returns the uppercased string from the given string. It converts all lowercase characters to uppercase.If no lowercase characters exist, it returns the original string.</td></tr></table>
+
+<b><i>String Information –</i></b><br>
+numpy.count() : This function returns the number of occurrences of a substring in the given string.<br>
+numpy.rfind() : This function returns the highest index of the substring if found in given string. If not found then it returns -1.<br>
+numpy.isnumeric() : This function returns “True” if all characters in the string are numeric characters, Otherwise, It returns “False”.<br>
+
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>numpy.find()</td><td>	It returns the lowest index of the substring if it is found in given string. If its is not found then it returns -1.</td></tr>
+<tr><td>numpy.index()</td><td>	It returns the position of the first occurrence of substring in a string</td></tr>
+<tr><td>numpy.isalpha()</td><td>	It returns “True” if all characters in the string are alphabets, Otherwise, It returns “False”.</td></tr>
+<tr><td>numpy.isdecimal()</td><td>	</td><td>It returns true if all characters in a string are decimal. If all characters are not decimal then it returns false.</td></tr>
+<tr><td>numpy.isdigit()</td><td>	It returns “True” if all characters in the string are digits, Otherwise, It returns “False”.</td></tr>
+<tr><td>numpy.islower()</td><td>	It returns “True” if all characters in the string are lowercase, Otherwise, It returns “False”.</td></tr>
+<tr><td>numpy.isspace()</td><td>	Returns true for each element if there are only whitespace characters in the string and there is at least one character, false otherwise.</td></tr>
+<tr><td>numpy.istitle()</td><td>	Returns true for each element if the element is a titlecased string and there is at least one character, false otherwise.</td></tr>
+<tr><td>numpy.isupper()</td><td>	Returns true for each element if all cased characters in the string are uppercase and there is at least one character, false otherwise.</td></tr>
+<tr><td>numpy.rindex()</td><td>	Returns the highest index of the substring inside the string if substring is found. Otherwise it raises an exception.</td></tr>
+<tr><td>numpy.startswith()</td><td>	Returns True if a string starts with the given prefix otherwise returns False.</td></tr></table>
+
+<b><i>String Comparison –</i></b><br>
+numpy.equal(): This function checks for string1 == string2 elementwise.<br>
+numpy.not_equal(): This function checks whether two string is unequal or not.<br>
+numpy.greater(): This function checks whether string1 is greater than string2 or not.<br>
