@@ -136,152 +136,74 @@ Array creation using array functions
 
 Methods for array creation in Numpy
 <br>
-FUNCTION	DESCRIPTION
-<pre>empty()	Return a new array of given shape and type, without initializing entries
-Syntax: numpy.empty(shape, dtype = float, order = ‘C’) </pre>
-
-<pre>empty_like()	Return a new array with the same shape and type as a given array</pre>
-<pre>eye()	Return a 2-D array with ones on the diagonal and zeros elsewhere.</pre>
-<pre>numpy.eye(R, C = None, k = 0, dtype = type <‘float’>) : –The eye tool returns a 2-D array with  1’s as the diagonal and  0’s elsewhere. The diagonal can be main, upper, or lower depending on the optional parameter k. A positive k is for the upper diagonal, a negative k is for the lower, and a  0 k (default) is for the main diagonal.
-
-Parameters : 
-
-R : Number of rows
-C : [optional] Number of columns; By default M = N
-k : [int, optional, 0 by default]
-          Diagonal we require; k>0 means diagonal above main diagonal or vice versa.
-dtype : [optional, float(by Default)] Data type of returned array.  
-Returns : 
-
-array of shape, R x C, an array where all elements 
-are equal to zero, except for the k-th diagonal, 
-whose values are equal to one.</pre>
-<pre>identity()	Return the identity array</pre>
-<pre>ones()	Return a new array of given shape and type, filled with ones
-parameters, discussed below – 
+<table><tr><th>FUNCTION</th><th>	DESCRIPTION</th></tr>
+<tr><td>empty()</td><td>	Return a new array of given shape and type, without initializing entries</td></tr>
+<tr><td>empty_like()</td><td>	Return a new array with the same shape and type as a given array</td></tr>
+<tr><td>eye()</td><td>	Return a 2-D array with ones on the diagonal and zeros elsewhere.</td></tr>
+<tr><td>identity()	</td><td>Return the identity array</td></tr>
+<tr><td>ones()</td><td>	Return a new array of given shape and type, filled with ones</td></tr>
+<tr><td>ones_like()</td><td>	Return an array of ones with the same shape and type as a given array</td></tr>
+<tr><td>zeros()</td><td>	Return a new array of given shape and type, filled with zeros</td></tr>
+<tr><td>zeros_like()</td><td>	Return an array of zeros with the same shape and type as a given array</td></tr>
+<tr><td>full_like()	</td><td>Return a full array with the same shape and type as a given array.</td></tr>
+<tr><td>array()</td><td>	Create an array</td></tr>
+<tr><td>asarray()</td><td>	Convert the input to an array</td></tr>
+<tr><td>asanyarray()</td><td>	Convert the input to an ndarray, but pass ndarray subclasses through</td></tr>
+<tr><td>ascontiguousarray()	</td><td>Return a contiguous array in memory (C order)</td></tr>
+<tr><td>asmatrix()</td><td>	Interpret the input as a matrix</td></tr>
+<tr><td>copy()</td><td>	Return an array copy of the given object</td></tr>
+<tr><td>frombuffer()</td><td>	Interpret a buffer as a 1-dimensional array</td></tr>
+<tr><td>fromfile()</td><td>	Construct an array from data in a text or binary file</td></tr>
+<tr><td>fromfunction()</td><td>	Construct an array by executing a function over each coordinate</td></tr>
+<tr><td>fromiter()	</td><td>Create a new 1-dimensional array from an iterable object</td></tr>
+<tr><td>fromstring()</td><td>	A new 1-D array initialized from text data in a string</td></tr>
+<tr><td>loadtxt()</td><td>	Load data from a text file</td></tr>
+<tr><td>arange()</td><td>	Return evenly spaced values within a given interval</td></tr>
+<tr><td>linspace()</td><td>	Return evenly spaced numbers over a specified interval</td></tr>
+<tr><td>logspace()</td><td>	Return numbers spaced evenly on a log scale</td></tr>
+<tr><td>geomspace()</td><td>	Return numbers spaced evenly on a log scale (a geometric progression)</td></tr>
+<tr><td>meshgrid()</td><td>	Return coordinate matrices from coordinate vectors</td></tr>
+<tr><td>mgrid()</td><td>	nd_grid instance which returns a dense multi-dimensional “meshgrid</td></tr>
+<tr><td>ogrid()</td><td>	nd_grid instance which returns an open multi-dimensional “meshgrid</td></tr>
+<tr><td>diag()</td><td>	Extract a diagonal or construct a diagonal array</td></tr>
+<tr><td>diagflat()	</td><td>Create a two-dimensional array with the flattened input as a diagonal</td></tr>
+<tr><td>tri()</td><td>	An array with ones at and below the given diagonal and zeros elsewhere</td></tr>
+<tr><td>tril()</td><td>	Lower triangle of an array</td></tr>
+<tr><td>triu()</td><td>	Upper triangle of an array</td></tr>
+<tr><td>vander()	</td><td>Generate a Vandermonde matrix</td></tr>
+<tr><td>mat()	</td><td>Interpret the input as a matrix</td></tr>
+<tr><td>bmat()</td><td>	Build a matrix object from a string, nested sequence, or array</td></tr></table>
  
-
-shape : integer or sequence of integers
-order  : C_contiguous or F_contiguous
-         C-contiguous order in memory(last index varies the fastest)
-         C order means that operating row-rise on the array will be slightly quicker
-         FORTRAN-contiguous order in memory (first index varies the fastest).
-         F order means that column-wise operations will be faster. 
-dtype : [optional, float(byDefault)] Data type of returned array.  
-</pre>
-<pre>ones_like()	Return an array of ones with the same shape and type as a given array</pre>
-<pre>zeros()	Return a new array of given shape and type, filled with zeros
-Syntax:
-
-numpy.zeros(shape, dtype = None, order = 'C')
-Parameters :
-shape : integer or sequence of integers
-order  : C_contiguous or F_contiguous
-         C-contiguous order in memory(last index varies the fastest)
-         C order means that operating row-rise on the array will be slightly quicker
-         FORTRAN-contiguous order in memory (first index varies the fastest).
-         F order means that column-wise operations will be faster. 
-dtype : [optional, float(byDeafult)] Data type of returned array.  
-
-Returns : ndarray of zeros having given shape, order and datatype.
-The arange([start,] stop[, step,][, dtype]) : Returns an array with evenly spaced elements as per the interval. The interval mentioned is half-opened i.e. [Start, Stop) 
-</pre>
-Parameters : 
-
-start : [optional] start of interval range. By default start = 0
-stop  : end of interval range
-step  : [optional] step size of interval. By default step size = 1,  
-For any output out, this is the distance between two adjacent values, out[i+1] - out[i]. 
-dtype : type of output array
-Return: 
-
-Array of evenly spaced values.
-Length of array being generated  = Ceil((Stop - Start) / Step)
-<pre>zeros_like()	Return an array of zeros with the same shape and type as a given array</pre>
-<pre>full_like()	Return a full array with the same shape and type as a given array.</pre>
-<pre>array()	Create an array</pre>
-<pre>asarray()	Convert the input to an array</pre>
-asanyarray()	Convert the input to an ndarray, but pass ndarray subclasses through
-ascontiguousarray()	Return a contiguous array in memory (C order)
-asmatrix()	Interpret the input as a matrix
-copy()	Return an array copy of the given object
-frombuffer()	Interpret a buffer as a 1-dimensional array
-fromfile()	Construct an array from data in a text or binary file
-fromfunction()	Construct an array by executing a function over each coordinate
-fromiter()	Create a new 1-dimensional array from an iterable object
-fromstring()	A new 1-D array initialized from text data in a string
-loadtxt()	Load data from a text file
-arange()	Return evenly spaced values within a given interval
-linspace()	Return evenly spaced numbers over a specified interval
-Syntax : 
- 
-
-numpy.linspace(start,
-               stop,
-               num = 50,
-               endpoint = True,
-               retstep = False,
-               dtype = None)
-Parameters : 
-
--> start  : [optional] start of interval range. By default start = 0
--> stop   : end of interval range
--> restep : If True, return (samples, step). By default restep = False
--> num    : [int, optional] No. of samples to generate
--> dtype  : type of output array
-Return : 
- 
-
--> ndarray
--> step : [float, optional], if restep = True
-Code 1 : Explaining linspace function 
- 
-logspace()	Return numbers spaced evenly on a log scale
-geomspace()	Return numbers spaced evenly on a log scale (a geometric progression)
-meshgrid()	Return coordinate matrices from coordinate vectors
-mgrid()	nd_grid instance which returns a dense multi-dimensional “meshgrid
-ogrid()	nd_grid instance which returns an open multi-dimensional “meshgrid
-diag()	Extract a diagonal or construct a diagonal array
-diagflat()	Create a two-dimensional array with the flattened input as a diagonal
-tri()	An array with ones at and below the given diagonal and zeros elsewhere
-tril()	Lower triangle of an array
-triu()	Upper triangle of an array
-vander()	Generate a Vandermonde matrix
-mat()	Interpret the input as a matrix
-bmat()	Build a matrix object from a string, nested sequence, or array
- 
-
 fromiter()is useful for creating non-numeric sequence type array however it can create any type of array. Here we will convert a string into a NumPy array of characters.
 
 
-How to generate 2-D Gaussian array using NumPy?
-numpy.meshgrid() It is used to create a rectangular grid out of two given one-dimensional arrays representing the Cartesian indexing or Matrix indexing. 
-Syntax: numpy.meshgrid(*xi, copy=True, sparse=False, indexing=’xy’)
-numpy.linspace()– returns number spaces evenly w.r.t interval.
-syntax: numpy.linspace(start, stop, num = 50, endpoint = True, retstep = False, dtype = None)
-numpy.exp()– this mathematical function helps the user to calculate the exponential of all the elements in the input array.
-(Go and see this code)
-How to create a vector in Python using NumPy
-Vector are built from components, which are ordinary numbers. We can think of a vector as a list of numbers, and vector algebra as operations performed on the numbers in the list. In other words vector is the numpy 1-D array.
+<h3>How to generate 2-D Gaussian array using NumPy?</h3>
+numpy.meshgrid() It is used to create a rectangular grid out of two given one-dimensional arrays representing the Cartesian indexing or Matrix indexing. <br>
+<pre>Syntax: numpy.meshgrid(*xi, copy=True, sparse=False, indexing=’xy’)</pre>
+<b>numpy.linspace()</b>– returns number spaces evenly w.r.t interval.<br>
+<pre>syntax: numpy.linspace(start, stop, num = 50, endpoint = True, retstep = False, dtype = None)</pre>
+<b>numpy.exp()</b>– this mathematical function helps the user to calculate the exponential of all the elements in the input array.<br>
+<i>(Go and see this code)</i>
+<h1>How to create a vector in Python using NumPy</h1>
+Vector are built from components, which are ordinary numbers. We can think of a vector as a list of numbers, and vector algebra as operations performed on the numbers in the list. In other words vector is the numpy 1-D array.<br>
 
 In order to create a vector, we use np.array method. 
 
-Syntax : np.array(list)
+<pre>Syntax : np.array(list)
 Argument : It take 1-D list it can be 1 row and n columns or n rows and 1 column
-Return : It returns vector which is numpy.ndarray
-Creating a Vector 
-In this example we will create a horizontal vector and a vertical vector 
-Note: We can create vector with other method as well which return 1-D numpy array for example np.arange(10), np.zeros((4, 1)) gives 1-D array, but most appropriate way is using np.array with the 1-D list.
+Return : It returns vector which is numpy.ndarray</pre>
+<b>Creating a Vector</b> 
+<p>In this example we will create a horizontal vector and a vertical vector </p>
+<p>Note: We can create vector with other method as well which return 1-D numpy array for example np.arange(10), np.zeros((4, 1)) gives 1-D array, but most appropriate way is using np.array with the 1-D list.</p>
  Creating a Vector 
-In this example we will create a horizontal vector and a vertical vector 
-Vector-Scalar Multiplication                   Vector Dot Product             Basic Arithmetic operation: 
+In this example we will create a horizontal vector and a vertical vector <br>
+<pre>Vector-Scalar Multiplication                   Vector Dot Product             Basic Arithmetic operation: </pre>
 
-Numpy fromrecords() method
+</h2>Numpy fromrecords() method<h2>
 With the help of numpy.core.fromrecords() method, we can create the record array by using the list of individual records by using numpy.core.fromrecords() method.
-
+<pre>
 Syntax : numpy.core.fromrecords([(tup1), (tup2)], metadata)
-
-Return : Return the record of an array.
+Return : Return the record of an array.</pre>
 
 <h1>NumPy Array Manipulation</h1>
 <h2>copy and view</h2>
